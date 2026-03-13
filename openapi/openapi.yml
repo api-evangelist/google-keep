@@ -1,0 +1,247 @@
+openapi: 3.1.0
+info:
+  title: Google Keep API
+  description: >-
+    The Google Keep API enables enterprise administrators to manage Google Keep
+    notes, including creating, listing, deleting, downloading attachments, and
+    managing permissions on notes.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/workspace/keep/api/guides
+servers:
+  - url: https://keep.googleapis.com
+paths:
+  /v1/notes:
+    get:
+      operationId: listNotes
+      summary: List notes
+      description: Lists notes.
+      parameters:
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListNotesResponse'
+    post:
+      operationId: createNote
+      summary: Create note
+      description: Creates a new note.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+  /v1/{name}:
+    get:
+      operationId: getNote
+      summary: Get note
+      description: Gets a note.
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: 'Format: notes/{note}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+    delete:
+      operationId: deleteNote
+      summary: Delete note
+      description: Deletes a note.
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: 'Format: notes/{note}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+  /v1/{name}:
+    get:
+      operationId: getAttachment
+      summary: Get attachment
+      description: Gets an attachment.
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: 'Format: notes/{note}/attachments/{attachment}'
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attachment'
+  /v1/{parent}/permissions:batchCreate:
+    post:
+      operationId: batchCreatePermissions
+      summary: Batch create permissions
+      description: Creates one or more permissions on a note.
+      parameters:
+        - name: parent
+          in: path
+          required: true
+          description: 'Format: notes/{note}'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                requests:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/CreatePermissionRequest'
+      responses:
+        '200':
+          description: Successful response
+  /v1/{parent}/permissions:batchDelete:
+    post:
+      operationId: batchDeletePermissions
+      summary: Batch delete permissions
+      description: Deletes one or more permissions on a note.
+      parameters:
+        - name: parent
+          in: path
+          required: true
+          description: 'Format: notes/{note}'
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                names:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+components:
+  schemas:
+    Note:
+      type: object
+      properties:
+        name:
+          type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        trashTime:
+          type: string
+          format: date-time
+        trashed:
+          type: boolean
+        title:
+          type: string
+        body:
+          $ref: '#/components/schemas/Section'
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+    Section:
+      type: object
+      properties:
+        text:
+          type: object
+          properties:
+            text:
+              type: string
+        list:
+          type: object
+          properties:
+            listItems:
+              type: array
+              items:
+                type: object
+                properties:
+                  text:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                  checked:
+                    type: boolean
+    Permission:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [ROLE_UNSPECIFIED, OWNER, WRITER]
+        deleted:
+          type: boolean
+    Attachment:
+      type: object
+      properties:
+        name:
+          type: string
+        mimeType:
+          type: array
+          items:
+            type: string
+    CreatePermissionRequest:
+      type: object
+      properties:
+        parent:
+          type: string
+        permission:
+          $ref: '#/components/schemas/Permission'
+    ListNotesResponse:
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        nextPageToken:
+          type: string

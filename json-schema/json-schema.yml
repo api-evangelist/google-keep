@@ -1,0 +1,112 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/json-schema/json-schema.yml
+title: Google Keep API Schemas
+description: JSON Schema definitions for the Google Keep API resources.
+type: object
+$defs:
+  Note:
+    type: object
+    title: Keep Note
+    description: A note in Google Keep.
+    properties:
+      name:
+        type: string
+        description: Resource name of the note.
+      createTime:
+        type: string
+        format: date-time
+        description: When the note was created.
+      updateTime:
+        type: string
+        format: date-time
+        description: When the note was last modified.
+      trashTime:
+        type: string
+        format: date-time
+        description: When the note was trashed.
+      trashed:
+        type: boolean
+        description: Whether the note has been trashed.
+      title:
+        type: string
+        description: The title of the note.
+      body:
+        $ref: '#/$defs/Section'
+        description: The body content of the note.
+      permissions:
+        type: array
+        description: The list of permissions set on the note.
+        items:
+          $ref: '#/$defs/Permission'
+      attachments:
+        type: array
+        description: The attachments on the note.
+        items:
+          $ref: '#/$defs/Attachment'
+  Section:
+    type: object
+    title: Section
+    description: The content body of a note, either text or a list.
+    properties:
+      text:
+        type: object
+        description: Text content of the section.
+        properties:
+          text:
+            type: string
+      list:
+        type: object
+        description: List content of the section.
+        properties:
+          listItems:
+            type: array
+            items:
+              $ref: '#/$defs/ListItem'
+  ListItem:
+    type: object
+    title: List Item
+    description: An item in a note list.
+    properties:
+      text:
+        type: object
+        properties:
+          text:
+            type: string
+      checked:
+        type: boolean
+        description: Whether the item is checked.
+      childListItems:
+        type: array
+        items:
+          $ref: '#/$defs/ListItem'
+  Permission:
+    type: object
+    title: Permission
+    description: A permission on a note.
+    properties:
+      name:
+        type: string
+        description: Resource name of the permission.
+      email:
+        type: string
+        description: The email address associated with the member.
+      role:
+        type: string
+        description: The role granted by this permission.
+        enum: [ROLE_UNSPECIFIED, OWNER, WRITER]
+      deleted:
+        type: boolean
+        description: Whether the permission has been deleted.
+  Attachment:
+    type: object
+    title: Attachment
+    description: An attachment to a note.
+    properties:
+      name:
+        type: string
+        description: Resource name of the attachment.
+      mimeType:
+        type: array
+        description: The MIME types of the attachment.
+        items:
+          type: string

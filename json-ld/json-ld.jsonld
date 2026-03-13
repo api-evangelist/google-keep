@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "keep": "https://keep.googleapis.com/v1/",
+    "goog": "https://developers.google.com/workspace/keep/api/reference/rest/v1/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "provider": "schema:provider",
+    "Note": {
+      "@id": "goog:notes",
+      "@context": {
+        "name": "schema:identifier",
+        "title": "schema:name",
+        "createTime": "schema:dateCreated",
+        "updateTime": "schema:dateModified",
+        "trashed": "schema:deleted",
+        "body": "schema:text",
+        "permissions": "schema:hasDigitalDocumentPermission",
+        "attachments": "schema:associatedMedia"
+      }
+    },
+    "Permission": {
+      "@id": "goog:notes.permissions",
+      "@context": {
+        "name": "schema:identifier",
+        "email": "schema:email",
+        "role": "schema:roleName"
+      }
+    },
+    "Attachment": {
+      "@id": "schema:MediaObject",
+      "@context": {
+        "name": "schema:identifier",
+        "mimeType": "schema:encodingFormat"
+      }
+    }
+  },
+  "@type": "WebAPI",
+  "name": "Google Keep API",
+  "description": "The Google Keep API enables enterprise administrators to manage notes, attachments, and permissions.",
+  "url": "https://developers.google.com/workspace/keep/api/guides",
+  "provider": {
+    "@type": "Organization",
+    "name": "Google",
+    "url": "https://developers.google.com"
+  }
+}
