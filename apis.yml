@@ -11,11 +11,11 @@ created: '2026-03-13'
 modified: '2026-03-13'
 specificationVersion: '0.18'
 tags:
-  - Notes
   - Google
   - Google Workspace
-  - Productivity
+  - Notes
   - Organization
+  - Productivity
 apis:
   - name: Google Keep API
     description: >-
@@ -32,8 +32,8 @@ apis:
       - type: JSONLD
         url: json-ld/json-ld.jsonld
     tags:
-      - Notes
       - Attachments
+      - Notes
       - Permissions
 common:
   - type: GettingStarted
