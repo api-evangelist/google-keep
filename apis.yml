@@ -8,7 +8,7 @@ description: >-
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
+modified: '2026-04-28'
 specificationVersion: '0.18'
 tags:
   - Google
@@ -31,6 +31,8 @@ apis:
         url: json-schema/json-schema.yml
       - type: JSONLD
         url: json-ld/json-ld.jsonld
+      - type: Spectral Rules
+        url: rules/google-keep-spectral-rules.yml
     tags:
       - Attachments
       - Notes
