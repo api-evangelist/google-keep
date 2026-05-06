@@ -1,0 +1,251 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Keep API
+  description: The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing,
+    deleting, downloading attachments, and managing permissions on notes.
+  tags:
+  - Google
+  - Keep
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-keep
+    baseUri: https://keep.googleapis.com
+    description: Google Keep API HTTP API.
+    resources:
+    - name: v1-notes
+      path: /v1/notes
+      operations:
+      - name: listnotes
+        method: GET
+        description: List notes
+        inputParameters:
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        - name: filter
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createnote
+        method: POST
+        description: Create note
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-name
+      path: /v1/{name}
+      operations:
+      - name: getattachment
+        method: GET
+        description: Get attachment
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          required: true
+          description: 'Format: notes/{note}/attachments/{attachment}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-parent-permissions-batchcreate
+      path: /v1/{parent}/permissions:batchCreate
+      operations:
+      - name: batchcreatepermissions
+        method: POST
+        description: Batch create permissions
+        inputParameters:
+        - name: parent
+          in: path
+          type: string
+          required: true
+          description: 'Format: notes/{note}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-parent-permissions-batchdelete
+      path: /v1/{parent}/permissions:batchDelete
+      operations:
+      - name: batchdeletepermissions
+        method: POST
+        description: Batch delete permissions
+        inputParameters:
+        - name: parent
+          in: path
+          type: string
+          required: true
+          description: 'Format: notes/{note}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-keep-rest
+    description: REST adapter for Google Keep API.
+    resources:
+    - path: /v1/notes
+      name: listnotes
+      operations:
+      - method: GET
+        name: listnotes
+        description: List notes
+        call: google-keep.listnotes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/notes
+      name: createnote
+      operations:
+      - method: POST
+        name: createnote
+        description: Create note
+        call: google-keep.createnote
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{name}
+      name: getattachment
+      operations:
+      - method: GET
+        name: getattachment
+        description: Get attachment
+        call: google-keep.getattachment
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{parent}/permissions:batchCreate
+      name: batchcreatepermissions
+      operations:
+      - method: POST
+        name: batchcreatepermissions
+        description: Batch create permissions
+        call: google-keep.batchcreatepermissions
+        with:
+          parent: rest.parent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{parent}/permissions:batchDelete
+      name: batchdeletepermissions
+      operations:
+      - method: POST
+        name: batchdeletepermissions
+        description: Batch delete permissions
+        call: google-keep.batchdeletepermissions
+        with:
+          parent: rest.parent
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-keep-mcp
+    transport: http
+    description: MCP adapter for Google Keep API for AI agent use.
+    tools:
+    - name: listnotes
+      description: List notes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-keep.listnotes
+      with:
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        filter: tools.filter
+      inputParameters:
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      - name: filter
+        type: string
+        description: filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createnote
+      description: Create note
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-keep.createnote
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getattachment
+      description: Get attachment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-keep.getattachment
+      with:
+        name: tools.name
+      inputParameters:
+      - name: name
+        type: string
+        description: 'Format: notes/{note}/attachments/{attachment}'
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batchcreatepermissions
+      description: Batch create permissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-keep.batchcreatepermissions
+      with:
+        parent: tools.parent
+      inputParameters:
+      - name: parent
+        type: string
+        description: 'Format: notes/{note}'
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batchdeletepermissions
+      description: Batch delete permissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-keep.batchdeletepermissions
+      with:
+        parent: tools.parent
+      inputParameters:
+      - name: parent
+        type: string
+        description: 'Format: notes/{note}'
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
