@@ -1,20 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
   label: Google Keep API
-  description: The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing,
-    deleting, downloading attachments, and managing permissions on notes.
+  description: 'Google Keep API. 5 operations. Lead operation: List notes. Self-contained Naftiko capability covering one
+    Google Keep business surface.'
   tags:
-  - Google
-  - Keep
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Google Keep
+  - Google Keep API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_KEEP_API_KEY: GOOGLE_KEEP_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: google-keep
+    namespace: openapi
     baseUri: https://keep.googleapis.com
-    description: Google Keep API HTTP API.
+    description: Google Keep API business capability. Self-contained, no shared references.
     resources:
     - name: v1-notes
       path: /v1/notes
@@ -22,6 +25,11 @@ capability:
       - name: listnotes
         method: GET
         description: List notes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: pageSize
           in: query
@@ -32,11 +40,6 @@ capability:
         - name: filter
           in: query
           type: string
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
       - name: createnote
         method: POST
         description: Create note
@@ -45,207 +48,212 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
     - name: v1-name
       path: /v1/{name}
       operations:
       - name: getattachment
         method: GET
         description: Get attachment
-        inputParameters:
-        - name: name
-          in: path
-          type: string
-          required: true
-          description: 'Format: notes/{note}/attachments/{attachment}'
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: v1-parent-permissions-batchcreate
+        inputParameters:
+        - name: name
+          in: path
+          type: string
+          description: 'Format: notes/{note}/attachments/{attachment}'
+          required: true
+    - name: v1-parent-permissions:batchCreate
       path: /v1/{parent}/permissions:batchCreate
       operations:
       - name: batchcreatepermissions
         method: POST
         description: Batch create permissions
-        inputParameters:
-        - name: parent
-          in: path
-          type: string
-          required: true
-          description: 'Format: notes/{note}'
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: v1-parent-permissions-batchdelete
+        inputParameters:
+        - name: parent
+          in: path
+          type: string
+          description: 'Format: notes/{note}'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: v1-parent-permissions:batchDelete
       path: /v1/{parent}/permissions:batchDelete
       operations:
       - name: batchdeletepermissions
         method: POST
         description: Batch delete permissions
-        inputParameters:
-        - name: parent
-          in: path
-          type: string
-          required: true
-          description: 'Format: notes/{note}'
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: parent
+          in: path
+          type: string
+          description: 'Format: notes/{note}'
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
   exposes:
   - type: rest
+    namespace: openapi-rest
     port: 8080
-    namespace: google-keep-rest
-    description: REST adapter for Google Keep API.
+    description: REST adapter for Google Keep API. One Spectral-compliant resource per consumed operation, prefixed with /v1.
     resources:
-    - path: /v1/notes
-      name: listnotes
+    - path: /v1/v1/notes
+      name: v1-notes
+      description: REST surface for v1-notes.
       operations:
       - method: GET
         name: listnotes
         description: List notes
-        call: google-keep.listnotes
+        call: openapi.listnotes
+        with:
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+          filter: rest.filter
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/notes
-      name: createnote
-      operations:
       - method: POST
         name: createnote
         description: Create note
-        call: google-keep.createnote
+        call: openapi.createnote
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/{name}
-      name: getattachment
+    - path: /v1/v1/{name}
+      name: v1-name
+      description: REST surface for v1-name.
       operations:
       - method: GET
         name: getattachment
         description: Get attachment
-        call: google-keep.getattachment
+        call: openapi.getattachment
         with:
           name: rest.name
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/{parent}/permissions:batchCreate
-      name: batchcreatepermissions
+    - path: /v1/v1/{parent}/permissions-batchcreate
+      name: v1-parent-permissions-batchcreate
+      description: REST surface for v1-parent-permissions:batchCreate.
       operations:
       - method: POST
         name: batchcreatepermissions
         description: Batch create permissions
-        call: google-keep.batchcreatepermissions
+        call: openapi.batchcreatepermissions
         with:
           parent: rest.parent
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/{parent}/permissions:batchDelete
-      name: batchdeletepermissions
+    - path: /v1/v1/{parent}/permissions-batchdelete
+      name: v1-parent-permissions-batchdelete
+      description: REST surface for v1-parent-permissions:batchDelete.
       operations:
       - method: POST
         name: batchdeletepermissions
         description: Batch delete permissions
-        call: google-keep.batchdeletepermissions
+        call: openapi.batchdeletepermissions
         with:
           parent: rest.parent
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: openapi-mcp
     port: 9090
-    namespace: google-keep-mcp
     transport: http
-    description: MCP adapter for Google Keep API for AI agent use.
+    description: MCP adapter for Google Keep API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
     tools:
-    - name: listnotes
+    - name: list-notes
       description: List notes
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-keep.listnotes
+      call: openapi.listnotes
       with:
         pageSize: tools.pageSize
         pageToken: tools.pageToken
         filter: tools.filter
-      inputParameters:
-      - name: pageSize
-        type: integer
-        description: pageSize
-      - name: pageToken
-        type: string
-        description: pageToken
-      - name: filter
-        type: string
-        description: filter
       outputParameters:
       - type: object
         mapping: $.
-    - name: createnote
+    - name: create-note
       description: Create note
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-keep.createnote
+      call: openapi.createnote
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getattachment
+    - name: get-attachment
       description: Get attachment
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: google-keep.getattachment
+      call: openapi.getattachment
       with:
         name: tools.name
-      inputParameters:
-      - name: name
-        type: string
-        description: 'Format: notes/{note}/attachments/{attachment}'
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: batchcreatepermissions
+    - name: batch-create-permissions
       description: Batch create permissions
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-keep.batchcreatepermissions
+      call: openapi.batchcreatepermissions
       with:
         parent: tools.parent
-      inputParameters:
-      - name: parent
-        type: string
-        description: 'Format: notes/{note}'
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: batchdeletepermissions
+    - name: batch-delete-permissions
       description: Batch delete permissions
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: google-keep.batchdeletepermissions
+      call: openapi.batchdeletepermissions
       with:
         parent: tools.parent
-      inputParameters:
-      - name: parent
-        type: string
-        description: 'Format: notes/{note}'
-        required: true
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
