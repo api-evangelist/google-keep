@@ -28,7 +28,7 @@ apis:
         url: json-schema/json-schema.yml
       - type: JSONLD
         url: json-ld/json-ld.jsonld
-      - type: Spectral Rules
+      - type: SpectralRules
         url: rules/google-keep-spectral-rules.yml
     tags:
       - Attachments
