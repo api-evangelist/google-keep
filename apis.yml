@@ -35,12 +35,18 @@ apis:
       - Notes
       - Permissions
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-keep-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-keep-domain-security.yml
   - type: GettingStarted
     url: https://developers.google.com/workspace/keep/api/guides
   - type: Pricing
     url: https://workspace.google.com/pricing
   - type: JSONLD
     url: json-ld/json-ld.jsonld
+  - url: https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
