@@ -1,0 +1,14 @@
+{
+  "repo": "google-keep",
+  "feeds": [
+    {
+      "source": "https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep",
+      "feed_url": "https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 19
+}
