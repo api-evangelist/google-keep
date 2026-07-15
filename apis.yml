@@ -35,6 +35,8 @@ apis:
       - Notes
       - Permissions
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-keep-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-keep-vulnerability-disclosure.yml
   - type: DomainSecurity
