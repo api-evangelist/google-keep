@@ -1,0 +1,40 @@
+openapi: 3.1.0
+info:
+  title: Google Keep Google Keep API Permissions:batchDelete API
+  description: The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.
+  version: v1
+  contact:
+    name: Google
+    url: https://developers.google.com/workspace/keep/api/guides
+servers:
+- url: https://keep.googleapis.com
+tags:
+- name: Permissions:batchDelete
+paths:
+  /v1/{parent}/permissions:batchDelete:
+    post:
+      operationId: batchDeletePermissions
+      summary: Batch delete permissions
+      description: Deletes one or more permissions on a note.
+      parameters:
+      - name: parent
+        in: path
+        required: true
+        description: 'Format: notes/{note}'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                names:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+      tags:
+      - Permissions:batchDelete
