@@ -3,7 +3,19 @@ description: >-
   The Google Keep API provides programmatic access to Google Keep notes for enterprise administrators. It enables
   creating, listing, retrieving, and deleting notes, downloading note attachments, and managing note permissions. The
   API is designed for enterprise use cases where administrators need to manage Keep notes across their organization.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-keep.png
 url: https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -15,25 +27,72 @@ tags:
   - Organization
   - Productivity
 apis:
-  - name: Google Keep API
-    description: >-
-      The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing,
-      deleting, downloading note attachments, and managing permissions on notes.
-    humanURL: https://developers.google.com/workspace/keep/api/guides
-    baseURL: https://keep.googleapis.com
-    properties:
-      - type: OpenAPI
-        url: openapi/openapi.yml
-      - type: JSONSchema
-        url: json-schema/json-schema.yml
-      - type: JSONLD
-        url: json-ld/json-ld.jsonld
-      - type: SpectralRules
-        url: rules/google-keep-spectral-rules.yml
-    tags:
-      - Attachments
-      - Notes
-      - Permissions
+- aid: google-keep:google-keep-google-keep-api-api
+  name: Google Keep Google Keep API API
+  description: The Google Keep API API from Google Keep — 1 operation(s) for google keep api.
+  humanURL: https://developers.google.com/workspace/keep/api/guides
+  baseURL: https://keep.googleapis.com
+  tags:
+  - Google Keep API
+  properties:
+  - type: OpenAPI
+    url: openapi/google-keep-google-keep-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
+  - type: JSONLD
+    url: json-ld/json-ld.jsonld
+  - type: SpectralRules
+    url: rules/google-keep-spectral-rules.yml
+- aid: google-keep:google-keep-notes-api
+  name: Google Keep Notes API
+  description: The Notes API from Google Keep — 1 operation(s) for notes.
+  humanURL: https://developers.google.com/workspace/keep/api/guides
+  baseURL: https://keep.googleapis.com
+  tags:
+  - Notes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-keep-notes-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
+  - type: JSONLD
+    url: json-ld/json-ld.jsonld
+  - type: SpectralRules
+    url: rules/google-keep-spectral-rules.yml
+- aid: google-keep:google-keep-permissions-batchcreate-api
+  name: Google Keep Permissions:batchCreate API
+  description: >-
+    The Permissions:batchCreate API from Google Keep — 1 operation(s) for permissions:batchcreate.
+  humanURL: https://developers.google.com/workspace/keep/api/guides
+  baseURL: https://keep.googleapis.com
+  tags:
+  - Permissions:batchCreate
+  properties:
+  - type: OpenAPI
+    url: openapi/google-keep-permissions-batchcreate-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
+  - type: JSONLD
+    url: json-ld/json-ld.jsonld
+  - type: SpectralRules
+    url: rules/google-keep-spectral-rules.yml
+- aid: google-keep:google-keep-permissions-batchdelete-api
+  name: Google Keep Permissions:batchDelete API
+  description: >-
+    The Permissions:batchDelete API from Google Keep — 1 operation(s) for permissions:batchdelete.
+  humanURL: https://developers.google.com/workspace/keep/api/guides
+  baseURL: https://keep.googleapis.com
+  tags:
+  - Permissions:batchDelete
+  properties:
+  - type: OpenAPI
+    url: openapi/google-keep-permissions-batchdelete-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/json-schema.yml
+  - type: JSONLD
+    url: json-ld/json-ld.jsonld
+  - type: SpectralRules
+    url: rules/google-keep-spectral-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/google-keep-agentic-access.yml
