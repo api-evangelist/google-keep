@@ -1,0 +1,20 @@
+{
+  "provider": "google-keep",
+  "sources": [
+    "google-keep-google-keep-api-api-openapi.yml",
+    "google-keep-notes-api-openapi.yml",
+    "google-keep-permissions-batchcreate-api-openapi.yml",
+    "google-keep-permissions-batchdelete-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-keep-google-keep-api-api-openapi.yml",
+    "google-keep-notes-api-openapi.yml",
+    "google-keep-permissions-batchcreate-api-openapi.yml",
+    "google-keep-permissions-batchdelete-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
