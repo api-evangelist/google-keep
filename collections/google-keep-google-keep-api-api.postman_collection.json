@@ -1,0 +1,120 @@
+{
+  "item": [
+    {
+      "id": "4b241a23-8a4d-4daa-aafa-9dedaec3b3ae",
+      "name": "Google Keep API",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3bf263e-d7fd-42eb-8a2e-ed955ab71f15",
+          "name": "Get attachment",
+          "request": {
+            "name": "Get attachment",
+            "description": {
+              "content": "Gets an attachment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) Format: notes/{note}/attachments/{attachment}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0574f25c-70cb-4b0d-87cd-509af4c757aa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) Format: notes/{note}/attachments/{attachment}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"mimeType\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://keep.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bef0d3d3-abbb-4b67-a6bf-8bfd51d37c10",
+    "name": "Google Keep Google Keep API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

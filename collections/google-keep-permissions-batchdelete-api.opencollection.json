@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Keep Google Keep API Permissions:batchDelete API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permissions:batchDelete",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch delete permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://keep.googleapis.com/v1/:parent/permissions:batchDelete",
+            "params": [
+              {
+                "name": "parent",
+                "value": "",
+                "type": "path",
+                "description": "Format: notes/{note}"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes one or more permissions on a note."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

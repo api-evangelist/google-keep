@@ -1,0 +1,133 @@
+{
+  "item": [
+    {
+      "id": "35236e69-ff3b-4d78-834f-54be35ef0da0",
+      "name": "Permissions:batchCreate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9d4775e-5afa-4e1a-86b5-88750a5902d4",
+          "name": "Batch create permissions",
+          "request": {
+            "name": "Batch create permissions",
+            "description": {
+              "content": "Creates one or more permissions on a note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "permissions:batchCreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Format: notes/{note}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"requests\": [\n    {\n      \"parent\": \"<string>\",\n      \"permission\": {\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"role\": \"<string>\",\n        \"deleted\": \"<boolean>\"\n      }\n    },\n    {\n      \"parent\": \"<string>\",\n      \"permission\": {\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"role\": \"<string>\",\n        \"deleted\": \"<boolean>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65e6dc11-a2bf-4193-be4f-00b3a60840ce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    ":parent",
+                    "permissions:batchCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Format: notes/{note}"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"requests\": [\n    {\n      \"parent\": \"string\",\n      \"permission\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"role\": \"ROLE_UNSPECIFIED\",\n        \"deleted\": true\n      }\n    },\n    {\n      \"parent\": \"string\",\n      \"permission\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"role\": \"OWNER\",\n        \"deleted\": false\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://keep.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a34ec089-4b5c-45cd-9508-a7d8fbeb90cf",
+    "name": "Google Keep Google Keep API Permissions:batchCreate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

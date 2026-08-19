@@ -1,0 +1,133 @@
+{
+  "item": [
+    {
+      "id": "08d6689f-fcf6-426d-a517-57231f564da3",
+      "name": "Permissions:batchDelete",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f99c7b78-dbb5-4cba-a9a8-0b0ab4f30a7a",
+          "name": "Batch delete permissions",
+          "request": {
+            "name": "Batch delete permissions",
+            "description": {
+              "content": "Deletes one or more permissions on a note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "permissions:batchDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) Format: notes/{note}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bf696727-f7dc-47ff-93a2-f0cc70ea0d81",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    ":parent",
+                    "permissions:batchDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "parent",
+                      "description": "(Required) Format: notes/{note}"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://keep.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e94717b8-aa19-45df-94ab-230fe2ea268f",
+    "name": "Google Keep Google Keep API Permissions:batchDelete API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}

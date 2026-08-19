@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Keep Google Keep API Permissions:batchCreate API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permissions:batchCreate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batch create permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://keep.googleapis.com/v1/:parent/permissions:batchCreate",
+            "params": [
+              {
+                "name": "parent",
+                "value": "",
+                "type": "path",
+                "description": "Format: notes/{note}"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates one or more permissions on a note."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

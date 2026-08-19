@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "4e56af55-4daf-4799-b1da-7badb51bceab",
+      "name": "Notes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9b65b43-dc19-4f21-b25c-32d78a497c7a",
+          "name": "List notes",
+          "request": {
+            "name": "List notes",
+            "description": {
+              "content": "Lists notes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fc082a9-7266-4ab7-a119-575998de8efc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"notes\": [\n    {\n      \"name\": \"string\",\n      \"createTime\": \"2001-02-09T21:06:39.348Z\",\n      \"updateTime\": \"2015-07-08T05:49:50.621Z\",\n      \"trashTime\": \"2008-01-16T09:56:35.942Z\",\n      \"trashed\": false,\n      \"title\": \"string\",\n      \"body\": {\n        \"text\": {\n          \"text\": \"string\"\n        },\n        \"list\": {\n          \"listItems\": [\n            {\n              \"text\": {\n                \"text\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"checked\": true\n            },\n            {\n              \"text\": {\n                \"text\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"checked\": false\n            }\n          ]\n        }\n      },\n      \"permissions\": [\n        {\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"role\": \"OWNER\",\n          \"deleted\": true\n        },\n        {\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"deleted\": false\n        }\n      ],\n      \"attachments\": [\n        {\n          \"name\": \"string\",\n          \"mimeType\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"mimeType\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"createTime\": \"1950-09-06T19:08:02.990Z\",\n      \"updateTime\": \"2006-10-13T11:59:06.514Z\",\n      \"trashTime\": \"1974-09-14T13:17:45.727Z\",\n      \"trashed\": false,\n      \"title\": \"string\",\n      \"body\": {\n        \"text\": {\n          \"text\": \"string\"\n        },\n        \"list\": {\n          \"listItems\": [\n            {\n              \"text\": {\n                \"text\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"checked\": true\n            },\n            {\n              \"text\": {\n                \"text\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"checked\": false\n            }\n          ]\n        }\n      },\n      \"permissions\": [\n        {\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"role\": \"OWNER\",\n          \"deleted\": false\n        },\n        {\n          \"name\": \"string\",\n          \"email\": \"string\",\n          \"role\": \"ROLE_UNSPECIFIED\",\n          \"deleted\": true\n        }\n      ],\n      \"attachments\": [\n        {\n          \"name\": \"string\",\n          \"mimeType\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"mimeType\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b52863aa-f156-4a18-be54-74ce04c1ce50",
+          "name": "Create note",
+          "request": {
+            "name": "Create note",
+            "description": {
+              "content": "Creates a new note.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"trashTime\": \"<dateTime>\",\n  \"trashed\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"body\": {\n    \"text\": {\n      \"text\": \"<string>\"\n    },\n    \"list\": {\n      \"listItems\": [\n        {\n          \"text\": {\n            \"text\": \"<string>\"\n          },\n          \"checked\": \"<boolean>\"\n        },\n        {\n          \"text\": {\n            \"text\": \"<string>\"\n          },\n          \"checked\": \"<boolean>\"\n        }\n      ]\n    }\n  },\n  \"permissions\": [\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"role\": \"<string>\",\n      \"deleted\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"role\": \"<string>\",\n      \"deleted\": \"<boolean>\"\n    }\n  ],\n  \"attachments\": [\n    {\n      \"name\": \"<string>\",\n      \"mimeType\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"mimeType\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b89a9c6-e5aa-470f-94e3-c61c93ea96fa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "notes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"trashTime\": \"<dateTime>\",\n  \"trashed\": \"<boolean>\",\n  \"title\": \"<string>\",\n  \"body\": {\n    \"text\": {\n      \"text\": \"string\"\n    },\n    \"list\": {\n      \"listItems\": [\n        {\n          \"text\": {\n            \"text\": \"string\"\n          },\n          \"checked\": true\n        },\n        {\n          \"text\": {\n            \"text\": \"string\"\n          },\n          \"checked\": false\n        }\n      ]\n    }\n  },\n  \"permissions\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"WRITER\",\n      \"deleted\": false\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"ROLE_UNSPECIFIED\",\n      \"deleted\": true\n    }\n  ],\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"mimeType\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"mimeType\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"createTime\": \"1990-03-28T19:45:22.040Z\",\n  \"updateTime\": \"2010-08-24T22:32:01.098Z\",\n  \"trashTime\": \"1971-08-24T00:37:39.421Z\",\n  \"trashed\": true,\n  \"title\": \"string\",\n  \"body\": {\n    \"text\": {\n      \"text\": \"string\"\n    },\n    \"list\": {\n      \"listItems\": [\n        {\n          \"text\": {\n            \"text\": \"string\"\n          },\n          \"checked\": false\n        },\n        {\n          \"text\": {\n            \"text\": \"string\"\n          },\n          \"checked\": true\n        }\n      ]\n    }\n  },\n  \"permissions\": [\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"WRITER\",\n      \"deleted\": false\n    },\n    {\n      \"name\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"WRITER\",\n      \"deleted\": false\n    }\n  ],\n  \"attachments\": [\n    {\n      \"name\": \"string\",\n      \"mimeType\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"mimeType\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://keep.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5226d7f7-8dc8-404c-88a6-14d836dd8079",
+    "name": "Google Keep Google Keep API Notes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.\n\nContact Support:\n Name: Google",
+      "type": "text/plain"
+    }
+  }
+}
