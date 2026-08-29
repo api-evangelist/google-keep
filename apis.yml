@@ -3,6 +3,18 @@ description: >-
   The Google Keep API provides programmatic access to Google Keep notes for enterprise administrators. It enables
   creating, listing, retrieving, and deleting notes, downloading note attachments, and managing note permissions. The
   API is designed for enterprise use cases where administrators need to manage Keep notes across their organization.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
