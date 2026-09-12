@@ -106,6 +106,8 @@ apis:
   - type: SpectralRules
     url: rules/google-keep-spectral-rules.yml
 common:
+  - type: Website
+    url: https://www.google.com/
   - type: AgenticAccess
     url: agentic-access/google-keep-agentic-access.yml
   - type: VulnerabilityDisclosure
@@ -123,3 +125,5 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-parent: google
+x-relationship: product
