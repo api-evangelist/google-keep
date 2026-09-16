@@ -1,8 +1,8 @@
 name: Google Keep
-description: >-
-  The Google Keep API provides programmatic access to Google Keep notes for enterprise administrators. It enables
-  creating, listing, retrieving, and deleting notes, downloading note attachments, and managing note permissions. The
-  API is designed for enterprise use cases where administrators need to manage Keep notes across their organization.
+description: The Google Keep API provides programmatic access to Google Keep notes for enterprise administrators.
+  It enables creating, listing, retrieving, and deleting notes, downloading note attachments, and managing
+  note permissions. The API is designed for enterprise use cases where administrators need to manage Keep
+  notes across their organization.
 deliveryModel:
   model: saas
   open_source: false
@@ -30,17 +30,17 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-keep.png
 url: https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 tags:
-  - Google
-  - Google Workspace
-  - Notes
-  - Organization
-  - Productivity
+- Google
+- Google Workspace
+- Notes
+- Organization
+- Productivity
 apis:
 - aid: google-keep:google-keep-google-keep-api-api
-  name: Google Keep Google Keep API API
+  name: Google Keep Google Keep API
   description: The Google Keep API API from Google Keep — 1 operation(s) for google keep api.
   humanURL: https://developers.google.com/workspace/keep/api/guides
   baseURL: https://keep.googleapis.com
@@ -73,8 +73,7 @@ apis:
     url: rules/google-keep-spectral-rules.yml
 - aid: google-keep:google-keep-permissions-batchcreate-api
   name: Google Keep Permissions:batchCreate API
-  description: >-
-    The Permissions:batchCreate API from Google Keep — 1 operation(s) for permissions:batchcreate.
+  description: The Permissions:batchCreate API from Google Keep — 1 operation(s) for permissions:batchcreate.
   humanURL: https://developers.google.com/workspace/keep/api/guides
   baseURL: https://keep.googleapis.com
   tags:
@@ -90,8 +89,7 @@ apis:
     url: rules/google-keep-spectral-rules.yml
 - aid: google-keep:google-keep-permissions-batchdelete-api
   name: Google Keep Permissions:batchDelete API
-  description: >-
-    The Permissions:batchDelete API from Google Keep — 1 operation(s) for permissions:batchdelete.
+  description: The Permissions:batchDelete API from Google Keep — 1 operation(s) for permissions:batchdelete.
   humanURL: https://developers.google.com/workspace/keep/api/guides
   baseURL: https://keep.googleapis.com
   tags:
@@ -106,24 +104,24 @@ apis:
   - type: SpectralRules
     url: rules/google-keep-spectral-rules.yml
 common:
-  - type: Website
-    url: https://www.google.com/
-  - type: AgenticAccess
-    url: agentic-access/google-keep-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/google-keep-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/google-keep-domain-security.yml
-  - type: GettingStarted
-    url: https://developers.google.com/workspace/keep/api/guides
-  - type: Pricing
-    url: https://workspace.google.com/pricing
-  - type: JSONLD
-    url: json-ld/json-ld.jsonld
-  - url: https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep
-    type: Blog
+- type: Website
+  url: https://www.google.com/
+- type: AgenticAccess
+  url: agentic-access/google-keep-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/google-keep-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/google-keep-domain-security.yml
+- type: GettingStarted
+  url: https://developers.google.com/workspace/keep/api/guides
+- type: Pricing
+  url: https://workspace.google.com/pricing
+- type: JSONLD
+  url: json-ld/json-ld.jsonld
+- url: https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-parent: google
 x-relationship: product
