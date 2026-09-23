@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Keep Google Keep Notes API
+  title: Google Keep Notes API
   description: The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading attachments, and managing permissions on notes.
   version: v1
   contact:
@@ -58,21 +58,6 @@ paths:
       - Notes
 components:
   schemas:
-    Permission:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        role:
-          type: string
-          enum:
-          - ROLE_UNSPECIFIED
-          - OWNER
-          - WRITER
-        deleted:
-          type: boolean
     Section:
       type: object
       properties:
@@ -105,15 +90,21 @@ components:
             $ref: '#/components/schemas/Note'
         nextPageToken:
           type: string
-    Attachment:
+    Permission:
       type: object
       properties:
         name:
           type: string
-        mimeType:
-          type: array
-          items:
-            type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - OWNER
+          - WRITER
+        deleted:
+          type: boolean
     Note:
       type: object
       properties:
@@ -142,3 +133,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
+    Attachment:
+      type: object
+      properties:
+        name:
+          type: string
+        mimeType:
+          type: array
+          items:
+            type: string

@@ -1,10 +1,7 @@
 {
   "provider": "google-keep",
   "sources": [
-    "google-keep-google-keep-api-api-openapi.yml",
-    "google-keep-notes-api-openapi.yml",
-    "google-keep-permissions-batchcreate-api-openapi.yml",
-    "google-keep-permissions-batchdelete-api-openapi.yml"
+    "_original/openapi.yml"
   ],
   "outputs": [
     "google-keep-google-keep-api-api-openapi.yml",
@@ -16,11 +13,23 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-keep-google-keep-api-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-keep-notes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-keep-permissions-batchcreate-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-keep-permissions-batchdelete-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "openapi.yml: tagged paths GET /v1/notes -> Notes",
+    "openapi.yml: tagged paths POST /v1/notes -> Notes",
+    "openapi.yml: tagged paths GET /v1/{name} -> Google Keep API",
+    "openapi.yml: tagged paths POST /v1/{parent}/permissions:batchCreate -> Permissions:batchCreate",
+    "openapi.yml: tagged paths POST /v1/{parent}/permissions:batchDelete -> Permissions:batchDelete",
+    "openapi.yml: declared missing tag: Google Keep API",
+    "openapi.yml: declared missing tag: Notes",
+    "openapi.yml: declared missing tag: Permissions:batchCreate",
+    "openapi.yml: declared missing tag: Permissions:batchDelete",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-keep-google-keep-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-keep-notes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-keep-permissions-batchcreate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-keep-permissions-batchdelete-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
