@@ -40,13 +40,6 @@ paths:
       - Permissions:batchCreate
 components:
   schemas:
-    CreatePermissionRequest:
-      type: object
-      properties:
-        parent:
-          type: string
-        permission:
-          $ref: '#/components/schemas/Permission'
     Permission:
       type: object
       properties:
@@ -62,3 +55,10 @@ components:
           - WRITER
         deleted:
           type: boolean
+    CreatePermissionRequest:
+      type: object
+      properties:
+        parent:
+          type: string
+        permission:
+          $ref: '#/components/schemas/Permission'

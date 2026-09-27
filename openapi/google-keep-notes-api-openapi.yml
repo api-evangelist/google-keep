@@ -81,15 +81,6 @@ components:
                         type: string
                   checked:
                     type: boolean
-    ListNotesResponse:
-      type: object
-      properties:
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Note'
-        nextPageToken:
-          type: string
     Permission:
       type: object
       properties:
@@ -142,3 +133,12 @@ components:
           type: array
           items:
             type: string
+    ListNotesResponse:
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        nextPageToken:
+          type: string
