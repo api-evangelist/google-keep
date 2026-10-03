@@ -58,29 +58,15 @@ paths:
       - Notes
 components:
   schemas:
-    Section:
+    ListNotesResponse:
       type: object
       properties:
-        text:
-          type: object
-          properties:
-            text:
-              type: string
-        list:
-          type: object
-          properties:
-            listItems:
-              type: array
-              items:
-                type: object
-                properties:
-                  text:
-                    type: object
-                    properties:
-                      text:
-                        type: string
-                  checked:
-                    type: boolean
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        nextPageToken:
+          type: string
     Permission:
       type: object
       properties:
@@ -133,12 +119,26 @@ components:
           type: array
           items:
             type: string
-    ListNotesResponse:
+    Section:
       type: object
       properties:
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Note'
-        nextPageToken:
-          type: string
+        text:
+          type: object
+          properties:
+            text:
+              type: string
+        list:
+          type: object
+          properties:
+            listItems:
+              type: array
+              items:
+                type: object
+                properties:
+                  text:
+                    type: object
+                    properties:
+                      text:
+                        type: string
+                  checked:
+                    type: boolean
