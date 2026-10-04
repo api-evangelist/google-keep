@@ -58,30 +58,6 @@ paths:
       - Notes
 components:
   schemas:
-    ListNotesResponse:
-      type: object
-      properties:
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Note'
-        nextPageToken:
-          type: string
-    Permission:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        role:
-          type: string
-          enum:
-          - ROLE_UNSPECIFIED
-          - OWNER
-          - WRITER
-        deleted:
-          type: boolean
     Note:
       type: object
       properties:
@@ -110,15 +86,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Attachment'
-    Attachment:
+    Permission:
       type: object
       properties:
         name:
           type: string
-        mimeType:
-          type: array
-          items:
-            type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum:
+          - ROLE_UNSPECIFIED
+          - OWNER
+          - WRITER
+        deleted:
+          type: boolean
     Section:
       type: object
       properties:
@@ -142,3 +124,21 @@ components:
                         type: string
                   checked:
                     type: boolean
+    Attachment:
+      type: object
+      properties:
+        name:
+          type: string
+        mimeType:
+          type: array
+          items:
+            type: string
+    ListNotesResponse:
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        nextPageToken:
+          type: string
