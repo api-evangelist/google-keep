@@ -58,6 +58,15 @@ paths:
       - Notes
 components:
   schemas:
+    ListNotesResponse:
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+        nextPageToken:
+          type: string
     Note:
       type: object
       properties:
@@ -133,12 +142,3 @@ components:
           type: array
           items:
             type: string
-    ListNotesResponse:
-      type: object
-      properties:
-        notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Note'
-        nextPageToken:
-          type: string
