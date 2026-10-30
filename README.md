@@ -1,4 +1,4 @@
-# Google Keep (google-keep)
+# Google Keep
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,50 +66,134 @@
 
 The Google Keep API provides programmatic access to Google Keep notes for enterprise administrators. It enables creating, listing, retrieving, and deleting notes, downloading note attachments, and managing note permissions. The API is designed for enterprise use cases where administrators need to manage Keep notes across their organization.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-keep/refs/heads/main/apis.yml)
+**Areas:** Google · Google Workspace · Notes · Organization · Productivity
 
-## Tags
+## Google Keep on APIs.io
 
-- Google
-- Google Workspace
-- Notes
-- Organization
-- Productivity
+Everything profiled for Google Keep is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-keep/](https://apis.io/providers/google-keep/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+- [Google Keep Google Keep API](https://apis.io/apis/google-keep/google-keep-google-keep-api-api/) — The Google Keep API API from Google Keep — 1 operation(s) for google keep api.
+- [Google Keep Notes API](https://apis.io/apis/google-keep/google-keep-notes-api/) — The Notes API from Google Keep — 1 operation(s) for notes.
+- [Google Keep Permissions:batchCreate API](https://apis.io/apis/google-keep/google-keep-permissions-batchcreate-api/) — The Permissions:batchCreate API from Google Keep — 1 operation(s) for permissions:batchcreate.
+- [Google Keep Permissions:batchDelete API](https://apis.io/apis/google-keep/google-keep-permissions-batchdelete-api/) — The Permissions:batchDelete API from Google Keep — 1 operation(s) for permissions:batchdelete.
 
-## APIs
+### Published properties
 
-### Google Keep API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Google Keep API enables enterprise administrators to manage Google Keep notes, including creating, listing, deleting, downloading note attachments, and managing permissions on notes.
+#### Agentic access (1)
 
-- **Human URL:** [https://developers.google.com/workspace/keep/api/guides](https://developers.google.com/workspace/keep/api/guides)
-- **Base URL:** `https://keep.googleapis.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Google Keep Agentic Access](https://apis.io/agentic-access/google-keep/google-keep-agentic-access/)
 
-- Attachments
-- Notes
-- Permissions
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [OpenAPI](openapi/openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/json-schema.yml) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/json-ld.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral  Rules](rules/google-keep-spectral-rules.yml)
+- [Json Ld Context](https://apis.io/jsonld/google-keep/json-ld/)
 
-## Common Properties
+#### Collections (4)
 
-- [Getting Started](https://developers.google.com/workspace/keep/api/guides)
+Postman and Open Collection request collections.
+
+- [Google Keep Google Keep API API](https://apis.io/collections/google-keep/open-google-keep-google-keep-api-api/)
+- [Google Keep Google Keep API Notes API](https://apis.io/collections/google-keep/open-google-keep-notes-api/)
+- [Google Keep Google Keep API Permissions:batchCreate API](https://apis.io/collections/google-keep/open-google-keep-permissions-batchcreate-api/)
+- [Google Keep Google Keep API Permissions:batchDelete API](https://apis.io/collections/google-keep/open-google-keep-permissions-batchdelete-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Keep — jsonschema rules](https://apis.io/rules/google-keep/google-keep-jsonschema-spectral-rules/)
+- [Google Keep API Rules](https://apis.io/rules/google-keep/google-keep-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Keep Domain Security](https://apis.io/security/google-keep/google-keep-domain-security/)
+- [Google Keep Vulnerability Disclosure](https://apis.io/security/google-keep/google-keep-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Keep Plans Pricing](https://apis.io/plans/google-keep/google-keep-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Keep Rate Limits](https://apis.io/rate-limits/google-keep/google-keep-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Keep Finops](https://apis.io/finops/google-keep/google-keep-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
+- [Getting started](https://developers.google.com/workspace/keep/api/guides)
 - [Pricing](https://workspace.google.com/pricing)
-- [JSON-LD](json-ld/json-ld.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+- [Blog](https://workspaceupdates.googleblog.com/feeds/posts/default/-/Google%20Keep)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 52.2 |
+| Contract governance | 13.6 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 18.4 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-keep/](https://apis.io/providers/google-keep/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Keep: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-keep/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
